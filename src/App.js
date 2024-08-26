@@ -1,26 +1,18 @@
-import React, { useState } from "react";
-import SearchBox from "./SearchBox";
-import Maps from "./Maps";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import MapComponent from "./MapComponent";
+import ReactFlowComponent from "./ReactFlowComponent";
+import { ReactFlowComponent2 } from "./ReactFlowComponent2";
 
 function App() {
-  const [selectPosition, setSelectPosition] = useState(null);
-
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        width: "100vw",
-        height: "100vh",
-      }}
-    >
-      <div style={{ width: "50vw", height: "100%" }}>
-        <Maps selectPosition={selectPosition} />
-      </div>
-      <div style={{ width: "50vw" }}>
-        <SearchBox selectPosition={selectPosition} setSelectPosition={setSelectPosition}/>
-      </div>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<MapComponent />} />
+        <Route path="/flow" element={<ReactFlowComponent />} />
+        <Route path="/flow2" element={<ReactFlowComponent2 />} />
+      </Routes>
+    </>
   );
 }
 
